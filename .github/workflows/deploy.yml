@@ -39,6 +39,4 @@ jobs:
           echo "valor_variavel_global=${{ inputs.VARIAVEL_GLOBAL }}
       
       - name: Mostrando variáveis
-        run: |
-          echo "Variáveis de ambiente: ${{ env }}"
-          echo "Variáveis VARS: ${{ vars }}"
+        run: ${{ env }}
