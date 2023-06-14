@@ -36,7 +36,7 @@ jobs:
         id: step_outputs        
         run: |
           echo "variavel_xyz=XYZ" >> $GITHUB_OUTPUT
-          echo "valor_variavel_global=${{ inputs.VARIAVEL_GLOBAL }}
+          echo "valor_variavel_global=${{ inputs.VARIAVEL_GLOBAL }}"
       
       - name: Mostrando variáveis
         run: ${{ env }}
