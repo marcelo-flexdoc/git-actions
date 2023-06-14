@@ -42,4 +42,4 @@ jobs:
           echo "variavel_build_alterada=${{ env.VARIAVEL_BUILD }}" >> $GITHUB_OUTPUT
 
       - name: Mostrando variáveis
-        run: ${{ env }}
+        run: env

@@ -33,5 +33,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Finalizando   
         run: |
-          echo "Finalizando todo processo!" >> $GITHUB_STEP_SUMMARY
-          echo "VARIÁVEL GLOBAL = ${{ inputs }}" >> $GITHUB_STEP_SUMMARY
+          echo "Finalizando todo processo!" >> $GITHUB_STEP_SUMMARY          
