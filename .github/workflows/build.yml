@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      variavel_build_interna: ${{ steps.step_outputs.outputs.variavel_abc }}
+      variavel_build_interna: ${{ steps.step_outputs.outputs.variavel_build_alterada }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,16 +33,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Criando variáveis de ambiente
         run: |
-          echo "VARIAVEL_GLOBAL='${{ inputs.VARIAVEL_GLOBAL }}, valor alterado no build'" >> $GITHUB_ENV
+          echo "VARIAVEL_BUILD='${{ inputs.VARIAVEL_GLOBAL }}, valor alterado no build'" >> $GITHUB_ENV
           
       # Runs a set of commands using the runners shell
       - name: Criando variáveis Output
-        id: step_outputs        
+        id: step_outputs                
         run: |
-          echo "variavel_abc=ABC" >> $GITHUB_OUTPUT
-          echo "valor_variavel_global=${{ inputs.VARIAVEL_GLOBAL }}"
+          echo "variavel_build_alterada=${{ env.VARIAVEL_BUILD }}" >> $GITHUB_OUTPUT
 
       - name: Mostrando variáveis
-        run: |
-          echo "Variáveis de ambiente: ${{ env }}"
-          echo "Variáveis VARS: ${{ vars }}"
+        run: ${{ env }}

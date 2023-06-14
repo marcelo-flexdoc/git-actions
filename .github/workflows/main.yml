@@ -25,7 +25,7 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     needs: [build]
     with:
-      VARIAVEL_GLOBAL:
+      VARIAVEL_BUILD: ${{needs.build.outputs.VARIAVEL_BUILD}}
 
   done:
     uses: ./.github/workflows/done.yml
@@ -33,7 +33,6 @@ jobs:
     with:
       VARIAVEL_BUILD: ${{ needs.build.outputs.VARIAVEL_BUILD }}
       VARIAVEL_DEPLOY: ${{ needs.deploy.outputs.VARIAVEL_DEPLOY }}
-      VARIAVEL_GLOBAL:
 
 
     

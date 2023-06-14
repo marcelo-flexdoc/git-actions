@@ -7,9 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   workflow_call:
     inputs:
-      VARIAVEL_GLOBAL:
-        required: true
-        type: string
       VARIAVEL_BUILD:
         required: true
         type: string
@@ -30,7 +27,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Mostrando variáveis
         run: |
-          echo "VARIAVEL_GLOBAL='${{ inputs.VARIAVEL_GLOBAL }}'" 
           echo "VARIAVEL_BUILD='${{ inputs.VARIAVEL_BUILD }}'"
           echo "VARIAVEL_DEPLOY='${{ inputs.VARIAVEL_DEPLOY }}'"
           
@@ -38,4 +34,4 @@ jobs:
       - name: Finalizando   
         run: |
           echo "Finalizando todo processo!" >> $GITHUB_STEP_SUMMARY
-          echo "VARIÁVEL GLOBAL = ${{ inputs.VARIAVEL_GLOBAL }}" >> $GITHUB_STEP_SUMMARY
+          echo "VARIÁVEL GLOBAL = ${{ inputs }}" >> $GITHUB_STEP_SUMMARY

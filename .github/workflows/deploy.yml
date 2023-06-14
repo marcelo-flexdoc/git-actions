@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   workflow_call:
     inputs:
-      VARIAVEL_GLOBAL:
+      VARIAVEL_BUILD:
         required: true
         type: string
     outputs:
@@ -21,7 +21,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     outputs:
-      variavel_deploy: ${{ steps.step_outputs.outputs.variavel_xyz }}
+      variavel_deploy: ${{ steps.step_outputs.outputs.variavel_deploy_alterada }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,14 +29,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Criando variáveis de ambiente
         run: |
-          echo "VARIAVEL_GLOBAL='${{ inputs.VARIAVEL_GLOBAL }}, valor alterado no deploy'" >> $GITHUB_ENV
+          echo "VARIAVEL_DEPLOY='${{ inputs.VARIAVEL_BUILD }}, valor alterado no deploy'" >> $GITHUB_ENV
           
       # Runs a set of commands using the runners shell
       - name: Criando variáveis Output
         id: step_outputs        
         run: |
-          echo "variavel_xyz=XYZ" >> $GITHUB_OUTPUT
-          echo "valor_variavel_global=${{ inputs.VARIAVEL_GLOBAL }}"
+          echo "variavel_deploy_alterada=${{ env.VARIAVEL_DEPLOY }}" >> $GITHUB_OUTPUT
       
       - name: Mostrando variáveis
         run: ${{ env }}
