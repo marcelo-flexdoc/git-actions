@@ -33,13 +33,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Criando variáveis de ambiente
         run: |
-          echo "VARIAVEL_BUILD='${{ inputs.VARIAVEL_GLOBAL }}, valor alterado no build'" >> $GITHUB_ENV
+          echo "VARIAVEL_BUILD=${{ inputs.VARIAVEL_GLOBAL }}, valor alterado no build" >> $GITHUB_ENV
           
       # Runs a set of commands using the runners shell
       - name: Criando variáveis Output
         id: step_outputs                
         run: |
           echo "variavel_build_alterada=${{ env.VARIAVEL_BUILD }}" >> $GITHUB_OUTPUT
-
-      - name: Mostrando variáveis
-        run: env
+          echo "Build Finalizado!" >> $GITHUB_STEP_SUMMARY    
+          

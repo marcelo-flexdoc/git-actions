@@ -29,13 +29,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Criando variáveis de ambiente
         run: |
-          echo "VARIAVEL_DEPLOY='${{ inputs.VARIAVEL_BUILD }}, valor alterado no deploy'" >> $GITHUB_ENV
+          echo "VARIAVEL_DEPLOY=${{ inputs.VARIAVEL_BUILD }}, valor alterado no deploy" >> $GITHUB_ENV
           
       # Runs a set of commands using the runners shell
       - name: Criando variáveis Output
         id: step_outputs        
         run: |
           echo "variavel_deploy_alterada=${{ env.VARIAVEL_DEPLOY }}" >> $GITHUB_OUTPUT
+          echo "Deploy Finalizado!" >> $GITHUB_STEP_SUMMARY 
       
-      - name: Mostrando variáveis
-        run: env
+

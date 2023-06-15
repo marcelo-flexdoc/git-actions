@@ -27,11 +27,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Mostrando variáveis
         run: |
-          echo "VARIAVEL_BUILD='${{ inputs.VARIAVEL_BUILD }}'"
-          echo "VARIAVEL_DEPLOY='${{ inputs.VARIAVEL_DEPLOY }}'"
+          echo "Finalizando todo processo!" >> $GITHUB_STEP_SUMMARY    
+          echo "VARIAVEL_BUILD=${{ inputs.VARIAVEL_BUILD }}"
+          echo "VARIAVEL_DEPLOY=${{ inputs.VARIAVEL_DEPLOY }}"
           env
-          
-      # Runs a set of commands using the runners shell
-      - name: Finalizando   
-        run: |
-          echo "Finalizando todo processo!" >> $GITHUB_STEP_SUMMARY          
+
+                
