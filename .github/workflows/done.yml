@@ -33,6 +33,7 @@ jobs:
           env
       
       - name: Mostrando contextos
+        if: github.ref_name == 'main'
         run: |
           echo "CONTEXTO GITHUB"
           echo "${{ toJSON(github) }}"
