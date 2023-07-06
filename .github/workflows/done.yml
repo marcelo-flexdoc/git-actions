@@ -31,5 +31,12 @@ jobs:
           echo "VARIAVEL_BUILD=${{ inputs.VARIAVEL_BUILD }}"
           echo "VARIAVEL_DEPLOY=${{ inputs.VARIAVEL_DEPLOY }}"
           env
+      
+      - name: Mostrando contextos
+        run: |
+          echo "CONTEXTO GITHUB"
+          echo "${{ toJSON(github) }}"
+          echo "CONTEXTO RUNNER"
+          echo "${{ toJSON(runner) }}"
 
                 
